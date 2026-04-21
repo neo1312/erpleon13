@@ -5,6 +5,8 @@ services:
       - .env.staging
     environment:
       - DJANGO_SETTINGS_MODULE=core.settings.staging
+    volumes:
+      - static_files:/app/staticfiles
     restart: always
 
   db:
