@@ -1,0 +1,19 @@
+services:
+  web:
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env.local
+    environment:
+      - DJANGO_SETTINGS_MODULE=core.settings.local
+
+  db:
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: erpleon_local
+      POSTGRES_USER: erpleon
+      POSTGRES_PASSWORD: localpass123
